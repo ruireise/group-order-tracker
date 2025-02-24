@@ -4,7 +4,7 @@ VERSION 1.0.0
 
 2/18/2025
 ### ADDED 
-Power Point slide with project abstract and documents uploaded. Changes are reflected on Trello. 
+- Power Point slide with project abstract and documents uploaded. Changes are reflected on Trello. 
 - https://docs.google.com/presentation/d/1oi53GUr02nfuV9mqhZtMJUurHmnzec5e/edit?usp=drive_link&ouid=115276405899073462464&rtpof=true&sd=true
 - NextJS Project to repository with the following setup: JavaScript, ESLint, TailwindCSS, App Router, Turbopack
 
@@ -13,3 +13,13 @@ Power Point slide with project abstract and documents uploaded. Changes are refl
 - main-styles.css 
 from repository
 
+2/22/2025
+### ADDED
+- components folder, Navbar.js, Footer.js, Hero.js
+- edited Navbar.js, Footer.js
+
+2/23/2025
+### ADDED
+- Features.js
+- edited Navbar.js, Footer.js, Hero.js, Features.js
+- Power Point slide #9 was added to included GitHub and Trello spaces
