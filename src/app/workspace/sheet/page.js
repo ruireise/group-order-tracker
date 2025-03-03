@@ -1,69 +1,84 @@
-export default function Sheet() {
-    // Example: Number of joiners you want to show
-    const joinerCount = 3; // You can dynamically change this as needed
+"use client"
+
+import React from "react";
+import { useState } from "react";
+import AddClaimModal from "../components/AddClaimModal";
+
+export default function Sheet(props) {
+    const joinerCount = 5; // Make joinercount default to 1 when working with react elements, cannot be less than 1 and can be added onto
+    const rowCount = 20; //Make rowCount default 10 when working with react elements, cannot be less than 2 and can be deleted or added onto
   
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     return (
-      <div className="p-14 mt-12">
-        <h1 className="text-2xl font-bold mb-10">Sheet Name Goes Here</h1>
+      <div className="p-14 mt-8 bg-purple-100">
+
+        {/*Buttons on top */}
+        <button className="text-md mb-3">🡰 Exit</button>
+        <div className="flex flex-col md:flex-row justify-between items-center">
+            {/* Sheet Title */}
+            <h1 className="text-center md:text-left text-2xl font-bold mb-6 w-full">
+                <input type="text" className="text-center md:text-left bg-transparent underline text-purple-900 md:w-[700px] whitespace-normal break-words" defaultValue={"Untitled Sheet"} />
+            </h1>
+
+            <button 
+                onClick={() => setIsModalOpen(true)}
+                className="px-3 py-2 w-28 md:w-36 h-12 mb-4 bg-blue-400 text-white rounded-lg text-sm md:text-lg">
+                Add a Claim
+            </button>
+        </div>
+        <AddClaimModal  isOpen={isModalOpen} onClose={()=>setIsModalOpen(false)}/>
+
         
-        <div className="overflow-auto w-full">
-          <table className="table-auto border-separate w-full">
+        {/* Container for sheet */}
+        <div className="overflow-auto max-h-[73vh]">
+          <table className="table-auto border-separate w-max min-w-[1200px]">
             {/*Header*/}
-            <thead className="bg-purple-300">
+            <thead className="sticky bg-purple-300 top-0 z-10">
               <tr>
-                <th className="border-2 border-purple-700 px-6 py-2 text-md text-blue-600 font-semibold" key="item-header">Item</th>
-                <th className="border-2 border-purple-700 px-6 py-2 text-md text-blue-600 font-semibold" key="quantity-header">Quantity</th>
-                <th className="border-2 border-purple-700 px-6 py-2 text-md text-blue-600 font-semibold" key="cost-header">Cost per</th>
+                <th className="border-2 border-purple-700 px-6 py-2 text-md text-blue-600 font-semibold w-[300px]">Item</th>
+                <th className="border-2 border-purple-700 px-6 py-2 text-md text-blue-600 font-semibold w-[50px]">Quantity</th>
+                <th className="border-2 border-purple-700 px-6 py-2 text-md text-blue-600 font-semibold w-[50px]">Cost per</th>
   
                 {/* Dynamically create columns for Claim Qt. and Joiner */}
                 {Array.from({ length: joinerCount }).map((_, index) => (
-                  <>
-                    <th key={`claim-qt-${index}`} className="border-2 border-purple-700 px-6 py-2 text-md text-blue-600 font-semibold">Claim Qt.</th>
-                    <th key={`joiner-${index}`} className="border-2 border-purple-700 px-6 py-2 text-md text-blue-600 font-semibold">Joiner</th>
-                  </>
+                  <React.Fragment key={`dynamic-header-${index}`}>
+                    <th className="border-2 border-purple-700 px-6 py-2 text-md text-blue-600 font-semibold w-[50px]">Claim Qt.</th>
+                    <th className="border-2 border-purple-700 px-6 py-2 text-md text-blue-600 font-semibold w-[150px]">Joiner</th>
+                  </React.Fragment>
                 ))}
               </tr>
             </thead>
   
             {/* Table Body */}
             <tbody>
-              {Array.from({ length: 10 }).map((_, rowIdx) => (
-                <tr key={rowIdx}>
-                  <td className="border-2 border-purple-700 px-2 py-2" key={`item-${rowIdx}`}>
-                    <input
-                      type="text"
-                      className="w-full outline-none"
-                    />
+              {Array.from({ length: rowCount }).map((_, rowIdx) => (
+                <tr key={`row-${rowIdx}`}>
+                  {/*Items Column*/}
+                  <td className="border-2 border-purple-700 px-2 py-2 min-h-[20px] whitespace-normal break-words">
+                    <input type="text" className="w-full outline-none bg-transparent text-purple-800"/>
                   </td>
-                  <td className="border-2 border-purple-700 px-2 py-2" key={`quantity-${rowIdx}`}>
-                    <input
-                      type="integer"
-                      className="w-full outline-none"
-                    />
+                  {/*Quantity Column; React element input controls no decimal*/}
+                  <td className="border-2 border-purple-700 px-2 py-2">
+                    <input type="number" className="w-full outline-none bg-transparent text-purple-800" min="1" step="1"/>
                   </td>
-                  <td className="border-2 border-purple-700 px-2 py-2" key={`cost-${rowIdx}`}>
-                    <input
-                      type="double"
-                      className="w-full outline-none"
-                    />
+                  {/*Cost per Column*/}
+                  <td className="border-2 border-purple-700 px-2 py-2">
+                    <input type="number" className="w-full outline-none bg-transparent text-purple-800" min="0.00" step="0.01" />
                   </td>
   
                   {/* Dynamically create inputs for Claim Qt. and Joiner columns */}
-                  {Array.from({ length: joinerCount }).map((_, index) => (
-                    <>
-                      <td key={`claim-qt-input-${index}`} className="border-2 border-purple-700 px-2 py-2">
-                        <input
-                          type="number"
-                          className="w-full outline-none"
-                        />
+                  {Array.from({ length: joinerCount }).map((_, colIdx) => (
+                    <React.Fragment key={`dynamic-row-${rowIdx}-${colIdx}`}>
+                      {/*Claims Qt. Column; React element input controls no decimal*/}
+                      <td className="border-2 border-purple-700 px-2 py-2">
+                        <input type="number" className="w-full outline-none bg-transparent text-purple-800" min="1" step="1"/>
                       </td>
-                      <td key={`joiner-input-${index}`} className="border-2 border-purple-700 px-2 py-2">
-                        <input
-                          type="text"
-                          className="w-full outline-none"
-                        />
+                      {/*Joiner Column*/}
+                      <td className="border-2 border-purple-700 px-2 py-2">
+                        <input type="text" className="w-full outline-none bg-transparent text-purple-800" />
                       </td>
-                    </>
+                    </React.Fragment>
                   ))}
                 </tr>
               ))}
@@ -73,4 +88,6 @@ export default function Sheet() {
       </div>
     );
   }
+  
+  
   

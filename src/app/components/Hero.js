@@ -1,4 +1,8 @@
+"use client"
+import {useRouter} from "next/navigation";
+
 export default function Hero() {
+    const router = useRouter();
 
     return (
         <section className="flex items-center justify-center min-h-[95vh] px-6 md:px-20 bg-purple-100 mt-16">
@@ -12,7 +16,8 @@ export default function Hero() {
                         Simplifying order management for the lazy ones.
                     </span>
     
-                    <button className="mt-6 bg-blue-400 text-white px-6 py-3 rounded-lg hover:bg-blue-800">
+                    <button className="mt-6 bg-blue-400 text-white px-6 py-3 rounded-lg hover:bg-purple-800 transition"
+                            onClick={() => router.push("/workspace")}>
                         Go to Dashboard
                     </button>
                 </div>
