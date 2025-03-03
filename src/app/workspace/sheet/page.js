@@ -32,62 +32,62 @@ export default function Sheet(props) {
         
         {/* Container for sheet */}
         <div className="overflow-auto max-h-[73vh]">
-          <table className="table-auto border-separate w-max min-w-[1200px]">
-            {/*Header*/}
-            <thead className="sticky bg-purple-300 top-0 z-10">
-              <tr>
-                <th className="border-2 border-purple-700 px-6 py-2 text-md text-blue-600 font-semibold w-[300px]">Item</th>
-                <th className="border-2 border-purple-700 px-6 py-2 text-md text-blue-600 font-semibold w-[50px]">Quantity</th>
-                <th className="border-2 border-purple-700 px-6 py-2 text-md text-blue-600 font-semibold w-[50px]">Cost per</th>
+            <table className="table-auto border-separate w-max min-w-[1200px]">
+                {/*Header*/}
+                <thead className="sticky bg-purple-300 top-0 z-10">
+                    <tr>
+                        <th className="border-2 border-purple-700 px-6 py-2 text-md text-blue-600 font-semibold w-[300px]">Item</th>
+                        <th className="border-2 border-purple-700 px-6 py-2 text-md text-blue-600 font-semibold w-[50px]">Quantity</th>
+                        <th className="border-2 border-purple-700 px-6 py-2 text-md text-blue-600 font-semibold w-[50px]">Cost per</th>
   
-                {/* Dynamically create columns for Claim Qt. and Joiner */}
-                {Array.from({ length: joinerCount }).map((_, index) => (
-                  <React.Fragment key={`dynamic-header-${index}`}>
-                    <th className="border-2 border-purple-700 px-6 py-2 text-md text-blue-600 font-semibold w-[50px]">Claim Qt.</th>
-                    <th className="border-2 border-purple-700 px-6 py-2 text-md text-blue-600 font-semibold w-[150px]">Joiner</th>
-                  </React.Fragment>
-                ))}
-              </tr>
-            </thead>
+                        {/* Dynamically create columns for Claim Qt. and Joiner together */}
+                        {Array.from({ length: joinerCount }).map((_, index) => (
+                            <React.Fragment key={`dynamic-header-${index}`}>
+                                <th className="border-2 border-purple-700 px-6 py-2 text-md text-blue-600 font-semibold w-[50px]">Claim Qt.</th>
+                                <th className="border-2 border-purple-700 px-6 py-2 text-md text-blue-600 font-semibold w-[150px]">Joiner</th>
+                            </React.Fragment>
+                        ))}
+                    </tr>
+                </thead>
   
-            {/* Table Body */}
-            <tbody>
-              {Array.from({ length: rowCount }).map((_, rowIdx) => (
-                <tr key={`row-${rowIdx}`}>
-                  {/*Items Column*/}
-                  <td className="border-2 border-purple-700 px-2 py-2 min-h-[20px] whitespace-normal break-words">
-                    <input type="text" className="w-full outline-none bg-transparent text-purple-800"/>
-                  </td>
-                  {/*Quantity Column; React element input controls no decimal*/}
-                  <td className="border-2 border-purple-700 px-2 py-2">
-                    <input type="number" className="w-full outline-none bg-transparent text-purple-800" min="1" step="1"/>
-                  </td>
-                  {/*Cost per Column*/}
-                  <td className="border-2 border-purple-700 px-2 py-2">
-                    <input type="number" className="w-full outline-none bg-transparent text-purple-800" min="0.00" step="0.01" />
-                  </td>
+                {/* Table Body */}
+                <tbody>
+                    {Array.from({ length: rowCount }).map((_, rowIdx) => (
+                        <tr key={`row-${rowIdx}`}>
+                        {/*Items Column*/}
+                            <td className="border-2 border-purple-700 px-2 py-2 min-h-[20px] whitespace-normal break-words">
+                                <input type="text" className="w-full outline-none bg-transparent text-purple-800"/>
+                            </td>
+                        {/*Quantity Column; React element input controls no decimal*/}
+                            <td className="border-2 border-purple-700 px-2 py-2">
+                                <input type="number" className="w-full outline-none bg-transparent text-purple-800" min="1" step="1"/>
+                            </td>
+                        {/*Cost per Column*/}
+                            <td className="border-2 border-purple-700 px-2 py-2">
+                                <input type="number" className="w-full outline-none bg-transparent text-purple-800" min="0.00" step="0.01" />
+                            </td>
   
-                  {/* Dynamically create inputs for Claim Qt. and Joiner columns */}
-                  {Array.from({ length: joinerCount }).map((_, colIdx) => (
-                    <React.Fragment key={`dynamic-row-${rowIdx}-${colIdx}`}>
-                      {/*Claims Qt. Column; React element input controls no decimal*/}
-                      <td className="border-2 border-purple-700 px-2 py-2">
-                        <input type="number" className="w-full outline-none bg-transparent text-purple-800" min="1" step="1"/>
-                      </td>
-                      {/*Joiner Column*/}
-                      <td className="border-2 border-purple-700 px-2 py-2">
-                        <input type="text" className="w-full outline-none bg-transparent text-purple-800" />
-                      </td>
-                    </React.Fragment>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                        {/* Dynamically create inputs for Claim Qt. and Joiner columns togther*/}
+                        {Array.from({ length: joinerCount }).map((_, colIdx) => (
+                            <React.Fragment key={`dynamic-row-${rowIdx}-${colIdx}`}>
+                                {/*Claims Qt. Column; React element input controls no decimal*/}
+                                <td className="border-2 border-purple-700 px-2 py-2">
+                                    <input type="number" className="w-full outline-none bg-transparent text-purple-800" min="1" step="1"/>
+                                </td>
+                                {/*Joiner Column*/}
+                                <td className="border-2 border-purple-700 px-2 py-2">
+                                    <input type="text" className="w-full outline-none bg-transparent text-purple-800" />
+                                </td>
+                            </React.Fragment>
+                        ))}
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
-      </div>
     );
-  }
+}
   
   
   
