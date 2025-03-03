@@ -23,3 +23,26 @@ from repository
 - Features.js
 - edited Navbar.js, Footer.js, Hero.js, Features.js
 - Power Point slide #9 was added to included GitHub and Trello spaces
+
+2/26/2025
+### ADDED 
+- workspace folder: page.js
+
+### CHANGED
+- workspace page
+
+2/27/2025
+### ADDED
+- sheets folder: page.js inside workspace folder
+
+### CHANGED
+- workspace page, sheets page
+
+3/01/2025
+### ADDED
+- components folder inside workspace folder
+- Inside workspace/components, AddClaimModal.js, NewSheetModal.js
+- Inside app/components, LoginModal.js
+
+### CHANGED
+- sheets page, AddClaimModal.js, LoginModal.js, Navbar.js, Hero.js
