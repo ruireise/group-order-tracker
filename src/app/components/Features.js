@@ -1,5 +1,5 @@
 export default function Features() {
-    return (
+  return (
       <div className="bg-purple-50">
         <div className="relative p-16 w-full h-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Feature 1 */}
