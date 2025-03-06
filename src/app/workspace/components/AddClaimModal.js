@@ -47,7 +47,7 @@ export default function AddClaimModal({ isOpen, onClose }) {
         >
             <div
                 ref={modalRef}
-                className="relative sm:max-w-lg sm:w-full m-3 sm:mx-auto bg-blue-200 shadow-md border rounded-lg shadow-lg p-6"
+                className="relative sm:max-w-lg sm:w-full m-3 sm:mx-auto bg-blue-200 border rounded-lg shadow-lg p-6"
                 style={{
                     position: 'absolute',
                     pointerEvents: 'auto', // Always allow interaction with the modal itself

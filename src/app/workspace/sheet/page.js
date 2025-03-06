@@ -27,7 +27,7 @@ export default function Sheet(props) {
                 Add a Claim
             </button>
         </div>
-        <AddClaimModal  isOpen={isModalOpen} onClose={()=>setIsModalOpen(false)}/>
+        <AddClaimModal isOpen={isModalOpen} onClose={()=>setIsModalOpen(false)}/>
 
         
         {/* Container for sheet */}
