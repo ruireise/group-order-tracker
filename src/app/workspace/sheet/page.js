@@ -1,14 +1,26 @@
 "use client"
 
 import React from "react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import AddClaimModal from "../components/AddClaimModal";
 
-export default function Sheet(props) {
-    const joinerCount = 5; // Make joinercount default to 1 when working with react elements, cannot be less than 1 and can be added onto
-    const rowCount = 20; //Make rowCount default 10 when working with react elements, cannot be less than 2 and can be deleted or added onto
-  
+export default function Sheet(props) { 
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [rowCount, setRowCount] = useState(10); //Make rowCount default 10
+    const [joinerCount, setJoinerCount] = useState(1); //Make joinerCount default to 1
+
+    //Increases joiner countm affects claims qt + joiner columns
+    const addCol = () =>
+        setJoinerCount(joinerCount + 1);
+    //Decreases joiner countm affects claims qt + joiner columns, can't remove if 1 or less
+    const removeCol = () =>
+        setJoinerCount(joinerCount > 1 ? joinerCount - 1 : joinerCount);
+    //Increases row count
+    const addRow = () =>
+        setRowCount(rowCount + 1);
+    //Decreases row count if it is greater than 2
+    const removeRow = () =>
+        setRowCount(rowCount > 2 ? rowCount - 1 : rowCount);
 
     return (
       <div className="p-14 mt-8 bg-purple-100">
@@ -29,9 +41,14 @@ export default function Sheet(props) {
         </div>
         <AddClaimModal isOpen={isModalOpen} onClose={()=>setIsModalOpen(false)}/>
 
+        <div className="space-x-2 mb-3">
+            {/*Column operations */}
+            <button onClick={removeCol} className="px-3 py-2 bg-blue-400 rounded-xl">▬</button>
+            <button onClick={addCol} className="px-3.5 py-2 bg-purple-500 rounded-xl">✚</button>
+        </div>
         
         {/* Container for sheet */}
-        <div className="overflow-auto max-h-[73vh]">
+        <div className="overflow-auto min-h-[68vh] max-h-[70vh]">
             <table className="table-auto border-separate w-max min-w-[1200px]">
                 {/*Header*/}
                 <thead className="sticky bg-purple-300 top-0 z-10">
@@ -85,6 +102,12 @@ export default function Sheet(props) {
                     </tbody>
                 </table>
             </div>
+            <div className="absolute bottom-6 left-3 flex flex-col space-y-2">
+                {/*Row operations */}
+                <button onClick={removeRow} className="px-3 py-2 bg-blue-400 rounded-xl">▬</button>
+                <button onClick={addRow} className="px-3 py-2 bg-purple-500 rounded-xl">✚</button>
+            </div>
+
         </div>
     );
 }

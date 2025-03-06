@@ -49,7 +49,7 @@ export default function NewSheetModal({ isOpen, onClose, currentFolder}) {
                         className="w-full rounded-none bg-transparent border-b-2 border-blue-400 text-blue-700 focus:outline-none focus:ring-0 mt-4"
                         required
                     >
-                        <option value={""} disabled selected>
+                        <option value={""} disabled>
                             Select
                         </option>
                         <option value="sheet">New Sheet</option>
@@ -97,7 +97,7 @@ export default function NewSheetModal({ isOpen, onClose, currentFolder}) {
                             </div>
 
                             <div className="flex justify-center">
-                                <button className="w-40 rounded bg-purple-400 p-2 text-white hover:bg-blue-700 font-bold">Create</button>
+                                <button className="w-40 rounded bg-purple-400 p-2 text-white hover:bg-blue-700 font-bold">Create Sheet</button>
                             </div>
 
                             <div className=" space-y-2">
