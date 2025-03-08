@@ -13,7 +13,7 @@ export default function Workspace() {
             {/* Pushes the elements down instead of the entire screen */}
             <div className="h-full w-full mt-16 flex">
             {/* Sidebar */}
-            <aside className="flex flex-col justify-between lg:w-60 w-1/4 min-w-[200px] bg-purple-300 p-4 shadow-md h-[92vh]">
+            <aside className="flex flex-col justify-between lg:w-52 w-52 min-w-[200px] bg-purple-300 p-4 shadow-md h-[92vh]">
 
                 <ul className="space-y-6 text-gray-600">
                     <li className="hover:bg-blue-200 px-3 py-1">In Progress</li>
