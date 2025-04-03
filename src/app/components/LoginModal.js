@@ -69,7 +69,15 @@ export default function LoginModal({ isOpen, onClose }) {
                         alt="Google Logo"
                         className="w-6 h-6 mr-3"
                     />
-                    <span>Sign in with Google</span>
+                        <span>Sign in with Google</span>
+                    </button>
+                    <button className="w-full flex items-center justify-center p-3 bg-purple-400 text-white rounded-lg hover:bg-purple-600 focus:outline-none">
+                    <img
+                        src="discord_logo.jpeg" // Google Logo URL
+                        alt="Discord Logo"
+                        className="w-6 h-6 mr-3"
+                    />
+                        <span>Sign in with Discord</span>
                     </button>
                 </div>
             </div>

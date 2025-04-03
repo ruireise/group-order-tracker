@@ -13,7 +13,7 @@ export default function Hero() {
 
                 <div className="flex flex-col items-center md:items-start justify-center">
                     <span className="text-blue-800 text-4xl md:text-5xl text-center md:text-left">
-                        Simplifying order management for the lazy ones.
+                        Managing group orders with less effort.
                     </span>
     
                     <button className="mt-6 bg-blue-400 text-white px-6 py-3 rounded-lg hover:bg-purple-800 transition"
