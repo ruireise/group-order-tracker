@@ -16,7 +16,7 @@ export default function Hero() {
                         Managing group orders with less effort.
                     </span>
     
-                    <button className="mt-6 bg-blue-400 text-white px-6 py-3 rounded-lg hover:bg-purple-800 transition"
+                    <button className="mt-6 bg-blue-400 text-white px-6 py-3 rounded-lg hover:bg-purple-800 transition m-6"
                             onClick={() => router.push("/workspace")}>
                         Go to Dashboard
                     </button>

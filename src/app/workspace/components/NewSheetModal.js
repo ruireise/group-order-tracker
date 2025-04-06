@@ -3,8 +3,8 @@ import { useRef, useState } from "react";
 export default function NewSheetModal({ isOpen, onClose, currentFolder}) {
     const modalRef = useRef(null);
     const [formType, setFormType] = useState("");
-    const [formLocation, setFormLocation] = useState(currentFolder || "Home");
-    const [folders, setFolders] = useState([]);
+    const [formLocation, setFormLocation] = useState(currentFolder);
+    const [divider, setDividers] = useState([]);
 
     return (
         <div
@@ -30,7 +30,7 @@ export default function NewSheetModal({ isOpen, onClose, currentFolder}) {
                     className="flex justify-between items-center"
                 >
                     <h2 className="text-xl font-bold text-blue-900">
-                        {formType === "folder" ? "New Folder" : formType === "sheet" ? "New Sheet" : "Select an Action"}
+                        {formType === "divider" ? "New Divider" : formType === "order" ? "New Order" : "Select an Action"}
                     </h2>
                     <button
                         onClick={onClose}
@@ -52,19 +52,19 @@ export default function NewSheetModal({ isOpen, onClose, currentFolder}) {
                         <option value={""} disabled>
                             Select
                         </option>
-                        <option value="sheet">New Sheet</option>
-                        <option value="folder">New Folder</option>
+                        <option value="order">New Order</option>
+                        <option value="divider">New Divider</option>
                     </select>
                 </div>
 
                 {/* Form Fields */}
                 <div className="mt-4 space-y-4">
-                    {formType === "sheet" && (
+                    {formType === "order" && (
                         <>
                             <div>
-                                <label htmlFor="sheetTitle" className="block text-blue-700 mb-1 font-bold">Sheet Title</label>
+                                <label htmlFor="sheetTitle" className="block text-blue-700 mb-1 font-bold">Title</label>
                                 <input
-                                    id="sheetTitle"
+                                    id="orderTitle"
                                     type="text"
                                     className="w-full rounded-none p-2 bg-transparent border-b-2 border-blue-400 text-blue-700 focus:outline-none focus:ring-0"
                                 />
@@ -79,25 +79,9 @@ export default function NewSheetModal({ isOpen, onClose, currentFolder}) {
                                     className="w-full rounded-none p-2 bg-transparent border-b-2 border-blue-400 text-blue-700 focus:outline-none focus:ring-0"
                                 />
                             </div>
-                            <div>
-                                <label htmlFor="sheetLocation" className="block text-blue-700 mb-1 font-bold">
-                                        Location
-                                </label>
-                                <select
-                                    id="sheetLocation"
-                                    value={formLocation}
-                                    onChange={(e) => setFormLocation(e.target.value)}
-                                    className="w-full rounded-none p-2 bg-transparent border-b-2 border-blue-400 text-blue-700 focus:outline-none focus:ring-0"
-                                >
-                                    <option value="Home" className="bg-blue-300">Home</option>
-                                    {folders.map((folder, index) => (
-                                        <option key={index} value={folder} className="bg-blue-300">{folder}</option>
-                                    ))}
-                                </select>
-                            </div>
 
                             <div className="flex justify-center">
-                                <button className="w-40 rounded bg-purple-400 p-2 text-white hover:bg-blue-700 font-bold">Create Sheet</button>
+                                <button className="w-40 rounded bg-purple-400 p-2 text-white hover:bg-blue-700 font-bold">Create New Order</button>
                             </div>
 
                             <div className=" space-y-2">
@@ -106,38 +90,22 @@ export default function NewSheetModal({ isOpen, onClose, currentFolder}) {
                             </div>
                         </>
                     )}
-                    {formType === "folder" && (
+                    {formType === "divider" && (
                         <>
                             <div>
-                                <label htmlFor="folderName" className="block text-blue-700 mb-1 font-bold">
+                                <label htmlFor="dividerName" className="block text-blue-700 mb-1 font-bold">
                                     Folder Name
                                 </label>
                                 <input
-                                    id="folderName"
+                                    id="dividerName"
                                     type="text"
                                     className="w-full rounded-none p-2 bg-transparent border-b-2 border-blue-400 text-blue-700 focus:outline-none focus:ring-0"
                                 />
                             </div>
-                            <div>
-                                <label htmlFor="folderLocation" className="block text-blue-700 mb-1 font-bold">
-                                    Location
-                                </label>
-                                <select
-                                    id="sheetLocation"
-                                    value={formLocation}
-                                    onChange={(e) => setFormLocation(e.target.value)}
-                                    className="w-full rounded-none p-2 bg-transparent border-b-2 border-blue-400 text-blue-700 focus:outline-none focus:ring-0"
-                                >
-                                    <option value="Home" className="bg-blue-300">Home</option>
-                                    {folders.map((folder, index) => (
-                                        <option key={index} value={folder} className="bg-blue-300">{folder}</option>
-                                    ))}
-                                </select>
-                            </div>
 
                             <div className="flex justify-center">
                                 <button className="w-40 rounded bg-purple-400 p-2 text-white hover:bg-blue-700 font-bold">
-                                    Create Folder
+                                    Create Divider
                                 </button>
                             </div>
                         </>
