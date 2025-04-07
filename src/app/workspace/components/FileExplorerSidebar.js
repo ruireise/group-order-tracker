@@ -1,8 +1,26 @@
 "use client"
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { client } from "@/utils/supabase/server";
 
 export default function FileExplorerSidebar ({isSidebarOpen, toggleSidebar}) {
+    const [dividerList, setDividersList] = useState([]);
+
+    useEffect(() => {
+        const fetchDividers = async () => {
+            const { data, error } = await client.from("divider")
+            .select("dividerid, divider_name");
+
+            if (error) {
+                crossOriginIsolated.error("Error fetching dividers: ", error);
+            } else {
+                setDividersList(data);
+            }
+        };
+
+        fetchDividers();
+    }, []);
+
     return (
         <div className="relative flex">
             <button 
@@ -17,7 +35,19 @@ export default function FileExplorerSidebar ({isSidebarOpen, toggleSidebar}) {
                     <>
                         <h2 className="text-lg font-bold px-3 py-2 mt-16">File Explorer</h2>
                         <ul className="mt-4 space-y-1 text-sm">
-                            <li className="hover:bg-blue-200 px-3">unnamed divider</li>
+                            {/*Display dividers*/}
+                            {dividerList.length > 0 ? (
+                                dividerList.map((divider) => (
+                                    <li key={divider.dividerid}
+                                        className="hover:bg-blue-200 px-3">
+                                        <a href={`/divider/${divider.dividerid}`} className="block">
+                                            {divider.divider_name}
+                                        </a>
+                                    </li>
+                                ))
+                            ) : (
+                                <span>Create a divider to get started!</span>
+                            )}
                         </ul>
                     </>
                 )}

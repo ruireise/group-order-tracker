@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import NewSheetModal from "./components/NewSheetModal";
+import NewSheetModal from "./components/NewDividerOrderModal";
 import { useRef, useState, useEffect } from "react";
 import Sidebar from "./components/FileExplorerSidebar";
 import OrderWindow from "./components/OrderWindow";

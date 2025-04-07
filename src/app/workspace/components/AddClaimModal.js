@@ -76,7 +76,7 @@ export default function AddClaimModal({ isOpen, onClose }) {
                         <input
                             id="username"
                             type="text"
-                            className="w-full rounded-none p-2 bg-transparent border-b-2 border-blue-400 text-blue-700 focus:outline-none focus:ring-0"
+                            className="w-full rounded-md p-2 bg-transparent border-b-2 border-blue-400 text-blue-700 focus:outline-none focus:ring-0"
                         />
                     </div>
 
@@ -86,7 +86,7 @@ export default function AddClaimModal({ isOpen, onClose }) {
                         <input
                             id="itemName"
                             type="text"
-                            className="w-full rounded-none p-2 bg-transparent border-b-2 border-blue-400 text-blue-700 focus:outline-none focus:ring-0"
+                            className="w-full rounded-md p-2 bg-transparent border-b-2 border-blue-400 text-blue-700 focus:outline-none focus:ring-0"
                         />
                     </div>
 
@@ -95,7 +95,7 @@ export default function AddClaimModal({ isOpen, onClose }) {
                         <input
                             id="quantity"
                             type="number"
-                            className="w-full rounded-none p-2 bg-transparent border-b-2 border-blue-400 text-blue-700 focus:outline-none focus:ring-0"
+                            className="w-full rounded-md p-2 bg-transparent border-b-2 border-blue-400 text-blue-700 focus:outline-none focus:ring-0"
                             min="1"
                         />
                     </div>
@@ -106,7 +106,7 @@ export default function AddClaimModal({ isOpen, onClose }) {
                     <input
                         id="discordId"
                         type="text"
-                        className="w-full rounded-none p-2 bg-transparent border-b-2 border-blue-400 text-blue-700 focus:outline-none focus:ring-0"
+                        className="w-full rounded-md p-2 bg-transparent border-b-2 border-blue-400 text-blue-700 focus:outline-none focus:ring-0"
                     />
                 </div>
 
@@ -115,11 +115,11 @@ export default function AddClaimModal({ isOpen, onClose }) {
                     <input
                         id="email"
                         type="email"
-                        className="w-full rounded-none p-2 bg-transparent border-b-2 border-blue-400 text-blue-700 focus:outline-none focus:ring-0"
+                        className="w-full rounded-md p-2 bg-transparent border-b-2 border-blue-400 text-blue-700 focus:outline-none focus:ring-0"
                     />
                 </div>
 
-                <button className="w-full rounded bg-purple-400 p-2 text-white hover:bg-purple-600 font-bold">Submit</button>
+                <button className="w-full rounded-xl bg-purple-400 p-2 text-white hover:bg-purple-600 font-bold">Submit</button>
             </div>
         </div>
     </div>

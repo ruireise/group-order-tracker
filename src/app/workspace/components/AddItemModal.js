@@ -46,7 +46,7 @@ export default function AddItemModal({ isOpen, onClose }) {
   };
 
   const handleModalClose = () => {
-    setAddedItems([]); // Clear the list
+    setAddedItems([]); 
     setShowSideWindow(false);
     onClose();
   };
@@ -92,7 +92,7 @@ export default function AddItemModal({ isOpen, onClose }) {
                 type="text"
                 value={itemName}
                 onChange={(e) => setItemName(e.target.value)}
-                className="w-full rounded-none p-2 bg-transparent border-b-2 border-blue-400 text-blue-700 focus:outline-none focus:ring-0"
+                className="w-full rounded-md p-2 bg-transparent border-b-2 border-blue-400 text-blue-700 focus:outline-none focus:ring-0"
               />
             </div>
 
@@ -103,7 +103,7 @@ export default function AddItemModal({ isOpen, onClose }) {
                 value={quantity}
                 min="1"
                 onChange={(e) => setQuantity(Number(e.target.value))}
-                className="w-full rounded-none p-2 bg-transparent border-b-2 border-blue-400 text-blue-700 focus:outline-none focus:ring-0"
+                className="w-full rounded-md p-2 bg-transparent border-b-2 border-blue-400 text-blue-700 focus:outline-none focus:ring-0"
               />
             </div>
 
@@ -113,20 +113,20 @@ export default function AddItemModal({ isOpen, onClose }) {
                 type="text"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
-                className="w-full rounded-none p-2 bg-transparent border-b-2 border-blue-400 text-blue-700 focus:outline-none focus:ring-0"
+                className="w-full rounded-md p-2 bg-transparent border-b-2 border-blue-400 text-blue-700 focus:outline-none focus:ring-0"
               />
             </div>
 
             <div className="flex space-x-2">
               <button
                 onClick={handleAddMore}
-                className="flex-grow rounded bg-purple-400 p-2 text-white hover:bg-purple-600 font-bold"
+                className="flex-grow rounded-md bg-purple-400 p-2 text-white hover:bg-purple-600 font-bold"
               >
                 Add More
               </button>
               <button
                 onClick={handleSubmit}
-                className="flex-grow rounded bg-blue-400 p-2 text-white hover:bg-blue-600 font-bold"
+                className="flex-grow rounded-md bg-blue-400 p-2 text-white hover:bg-blue-600 font-bold"
               >
                 Submit
               </button>
