@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import PropTypes from 'prop-types';
+
 
 const LABELS_MAP = {
   orderid: "Box ID",
@@ -38,12 +40,20 @@ export default function OrderWindow({
       <div className="bg-white shadow-md rounded-2xl p-4 w-full" onClick={() => setIsExpanded(!isExpanded)}>
         <div className="flex items-center justify-between cursor-pointer">
           <div className="flex items-center space-x-4">
-            <div className="w-24 h-24 bg-purple-300 rounded-lg"></div>
+          {image ? (
+            <img
+              src={image}
+              alt={title}
+              className="w-24 h-24 object-cover rounded-lg"
+            />
+          ) : (
+            <div className="w-24 h-24 bg-purple-300 rounded-lg flex items-center justify-center text-white"></div>
+)}
             <h2
-              className="text-lg font-semibold text-purple-800 hover:underline"
+              className="text-lg font-semibold text-purple-800 hover:underline w-full h-full overflow-hidden"
               onClick={(e) => {
                 e.stopPropagation();
-                router.push("/workspace/sheet/order");
+                router.push(`/workspace/sheet/order/${data.orderid}`);
               }}
             >
               {title}
