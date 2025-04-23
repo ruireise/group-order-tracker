@@ -8,7 +8,7 @@ export default function Hero() {
         <section className="flex items-center justify-center min-h-[95vh] px-6 md:px-20 bg-purple-100 mt-16">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-32 min-w-6xl max-w-full">
                 <div className="bg-transparent flex items-center justify-center">
-                    <img src="hero_img.png" alt="Google Logo" className="w-[800px] h-auto max-w-full"/>
+                    <img src="/hero_img.png" alt="Hero Image" className="w-[800px] h-auto max-w-full"/>
                 </div>
 
                 <div className="flex flex-col items-center md:items-start justify-center">

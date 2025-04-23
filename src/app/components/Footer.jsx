@@ -1,10 +1,17 @@
+"use client"
+import {useRouter} from "next/navigation"
+
 export default function Footer() {
+    const router = useRouter();
+    
     return (
         <footer className="bg-purple-300 w-full p-6 h-auto md:h-52">
             <div className="grid grid-cols-1 md:grid-cols-2 items-center max-w-2xl mx-auto gap-x-16">
             <div className="flex justify-center md:justify-start order-2 md:order-none">
-                    <div className="w-16 h-16 bg-gray-400 rounded-md mt-6">
-                        Logo
+                    <div className="flex flex-row mt-2 rounded-md items-center">
+                        <h3 className="mt-2 text-purple-700 font-bold text-xl cursor-pointer" onClick={()=> router.push("/")}>
+                            Group Order Tracker/ruibot
+                        </h3>
                     </div>
                 </div>
 

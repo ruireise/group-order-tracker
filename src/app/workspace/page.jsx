@@ -136,7 +136,7 @@ export default function Workspace() {
         }}
       />
 
-      <div className="flex-1 h-full w-full mt-16 flex transition-all duration-300">
+      <div className="flex-1 h-full w-full mt-16 flex transition-all duration-300 z-30">
         <main className="flex-1 p-6">
           <div className="flex justify-center mb-6 relative">
             <div className="flex items-center bg-purple-300 shadow-md p-3 rounded-full w-full max-w-3xl">

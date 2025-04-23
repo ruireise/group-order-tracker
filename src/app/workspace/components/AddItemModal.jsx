@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
+import { client } from "@/utils/supabase/server";
 
-export default function AddItemModal({ isOpen, onClose }) {
+export default function AddItemModal({ isOpen, onClose, boxId }) {
   const modalRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [itemName, setItemName] = useState("");
@@ -40,13 +41,36 @@ export default function AddItemModal({ isOpen, onClose }) {
     setShowSideWindow(true);
   };
 
-  const handleSubmit = () => {
-    setShowSideWindow(false);
-    onClose();
+  const handleSubmit = async () => {
+    if (!itemName || quantity <= 0 || !price || !boxId) return;
+  
+    const itemPrice = parseFloat(price) || 0;
+  
+    const { error } = await client.from("item_row").insert([
+      {
+        boxId: boxId, // Assuming lowercase 'boxid' in your DB schema
+        item_name: itemName,
+        max_quantity: quantity,
+        leftover_quantity: quantity, // Initially the same — will be adjusted later when claims are made
+        price_per_item: itemPrice,
+      },
+    ]);
+  
+    if (error) {
+      console.error("Error adding item:", error.message);
+    } else {
+      setShowSideWindow(false);
+      onClose();
+      setItemName("");
+      setQuantity(1);
+      setPrice("");
+      setAddedItems([]);
+    }
   };
+  
 
   const handleModalClose = () => {
-    setAddedItems([]); 
+    setAddedItems([]);
     setShowSideWindow(false);
     onClose();
   };

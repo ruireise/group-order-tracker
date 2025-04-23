@@ -31,7 +31,7 @@ export default function FileExplorerSidebar({
   }, [mode]);
 
   return (
-    <div className="relative flex">
+    <div className="relative flex z-50">
       <button 
         onClick={toggleSidebar}
         className={`absolute top-24 transform bg-purple-300 text-white px-2 py-4 rounded-r-md shadow-md hover:bg-blue-600 transition-all duration-200 ${isSidebarOpen ? "left-52" : "left-0"}`}

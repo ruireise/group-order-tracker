@@ -95,7 +95,7 @@ export default function LoginModal({ isOpen, onClose }) {
                     <div className="space-y-2 pt-4">
                         <button className="w-full flex items-center justify-center p-3 bg-purple-400 text-white rounded-lg hover:bg-blue-600 focus:outline-none">
                             <img
-                                src="google-icon.png"
+                                src="/google-icon.png"
                                 alt="Google Logo"
                                 className="w-6 h-6 mr-3"
                             />
@@ -103,7 +103,7 @@ export default function LoginModal({ isOpen, onClose }) {
                         </button>
                         <button className="w-full flex items-center justify-center p-3 bg-purple-400 text-white rounded-lg hover:bg-blue-600 focus:outline-none">
                             <img
-                                src="discord_logo.jpeg"
+                                src="/discord_logo.jpeg"
                                 alt="Discord Logo"
                                 className="w-6 h-6 mr-3"
                             />
